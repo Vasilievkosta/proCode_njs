@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=brand%></title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="../style/style.css">
+	
+</head>
+<body>
+	
+	<%- include("../partials/header.ejs") %>
+	
+	<section class="car">
+		<div class="wrap">
+		
+			<h2 class="car__brand"><%=brand %></h2>	
+			<p class="car__content"><%=content %></p>	
+			<img class="car__image" src="../../images/<%=id %>.png"/>
+			
+		</div>
+	</section>		
+	
+	<%- include("../partials/footer.ejs") %>	
+	
+</body>
+<html>

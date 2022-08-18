@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%=title %></title>
+    <meta charset="utf-8" />
+	<link rel="stylesheet" href="style/style.css">
+	
+</head>
+<body>
+	
+	<%- include("../partials/header.ejs") %>
+	
+    <h1><%=title %></h1>
+    <p>Электронный адрес: admin@mycorp.com</p>
+	<p class="phone">Телефон: <%=phone %></p>
+	
+	<ul class="social">
+        <% for(let i=0; i<social.length;i++) {%>
+            <li class="social__item">
+				<a class="social__link" href="#">
+					<%=social[i] %>
+				</a>
+			</li>
+        <%} %>
+    </ul>
+	
+	<img class="spinner" src="images/Spinner-3.gif" />
+	
+	<ul class="list"></ul>
+		
+	
+	<%- include("../partials/footer.ejs") %>
+	
+	
+	<script src="script/script.js"></script>
+	
+</body>
+<html>
