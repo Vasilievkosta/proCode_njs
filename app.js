@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-	res.send('About us');
+	res.render('pages/about', obj);
 });
 
 app.get('/car/:id', (req, res) => {

@@ -8,14 +8,12 @@ const init = async () => {
 		console.log("Ошибка HTTP: " + res.status);
 	}
 }
-
 let arr = init();
 
 let ul = document.querySelector('.list');
 
-document.querySelector('.spinner').classList.add('spinner__none');
-
-arr.then(cars => {
+window.setTimeout(function() {
+	arr.then(cars => {
 	for (let car of cars) {
 		let li = document.createElement('li');
 		li.classList.add('item');
@@ -40,4 +38,11 @@ arr.then(cars => {
 		ul.appendChild(li);
 	}
 });
+document.querySelector('.spinner').classList.add('spinner__none');
+}, 3000);
+
+// setTimeout вставлен для показа задержки загрузки
+
+
+
 
