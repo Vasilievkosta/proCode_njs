@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%=brand%></title>
+    <title>brand</title>
     <meta charset="utf-8" />
 	<link rel="stylesheet" href="../style/style.css">
 	
@@ -13,14 +13,51 @@
 	<section class="car">
 		<div class="wrap">
 		
-			<h2 class="car__brand"><%=brand %></h2>	
-			<p class="car__content"><%=content %></p>	
-			<img class="car__image" src="../../images/<%=id %>.png"/>
+			<h2 class="car__brand"></h2>	
+			<p class="car__content"></p>	
+			<img class="car__image"/>
 			
 		</div>
 	</section>		
+
+		
 	
-	<%- include("../partials/footer.ejs") %>	
+	<%- include("../partials/footer.ejs") %>
+
+<script>
+
+
+
+
+const init = async () => {
+
+	let arr = window.location.href.split('/');
+	let fin = arr[arr.length - 1];
+	let url = '/data/' + fin;
+	const res = await fetch(url);
+	if (res.ok) {
+		let json = await res.json();		
+		return json;
+	}
+	else {
+		console.log("Ошибка HTTP: " + res.status);
+	}
+}
+let arr = init();
+let h2 = document.querySelector('.car__brand');
+let p = document.querySelector('.car__content');
+let img = document.querySelector('.car__image');
+
+arr.then(car => {		
+	console.log(car);
+	h2.innerHTML = car.brand;
+	p.innerHTML = car.content;
+	img.setAttribute('src', `../../images/${car.id}.png`);
+});
+
+</script>
 	
 </body>
+
+
 <html>

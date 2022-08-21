@@ -14,8 +14,12 @@ const obj = {
 
 app.set('view engine', 'ejs');
 
-app.get('/data', (req, res) => {	
+app.get('/data', (req, res) => {
 	res.json(cars);
+});
+app.get('/data/:id', (req, res) => {
+	const {id} = req.params;	
+	res.json(cars[id - 1]);
 });
 
 app.get('/', (req, res) => {
@@ -26,10 +30,8 @@ app.get('/about', (req, res) => {
 	res.render('pages/about', obj);
 });
 
-app.get('/car/:id', (req, res) => {
-	const {id} = req.params;
-	const point = cars[+id - 1];
-	res.render('pages/car', point);
+app.get('/car/:id', (req, res) => {	
+	res.render('pages/car');
 });
 
 app.use('/shop', (req, res) => {	

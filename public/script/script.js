@@ -39,7 +39,7 @@ window.setTimeout(function() {
 	}
 });
 document.querySelector('.spinner').classList.add('spinner__none');
-}, 3000);
+}, 1500);
 
 // setTimeout вставлен для показа задержки загрузки
 
